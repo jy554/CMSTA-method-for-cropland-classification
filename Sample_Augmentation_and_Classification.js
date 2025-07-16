@@ -190,7 +190,7 @@ var change3sample = transformFeatures(samples,changeVectors[2],2)
 var change4sample = transformFeatures(samples,changeVectors[3],3)
 print(change4sample.limit(100))
 samples = samples.map(function(feature){return feature.set('vectorType',0)})
-var SourceSamples = ee.FeatureCollection([samples,change1sample,change2sample,change3sample,change4sample]).flatten()//,change1sample,change2sample,change3sample,change4sample
+var SourceSamples = ee.FeatureCollection([samples,change1sample,change2sample,change3sample,change4sample]).flatten()
   .map(function(feature){return feature.set('type','1')});
 print(SourceSamples.size())
 newSample = newSample.map(renameProperty)
@@ -502,7 +502,7 @@ newSample = newSample.map(renameProperty)
 
   
   var TargetSample_cls = CopyFeatureByweight(SourceSample11);
-  var SourceSample_cls = CopyFeatureByweight(SourceSample11);//SourceSample6 //
+  var SourceSample_cls = CopyFeatureByweight(SourceSample11);
   var SampleSet = ee.FeatureCollection([TargetSample_cls,SourceSample_cls]).flatten();//,SourceSample_cls
   print(SourceSample_cls.size(),'SourceSample_cls');
   print(TargetSample_cls.size(),'TargetSample_cls');
